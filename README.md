@@ -154,9 +154,9 @@ Ya podemos ver el resultado en nuestro browser:
 
 `localhost:80`
 
-## Step 5 - docker build
+## Step 5 - docker push
 
-Para enviar nuestra imagen al Docker Hub, previo registro y login
+Para enviar nuestra imagen al Docker Hub, previo registro y login utilizamos `docker push`
 
 
 ```{shell}
@@ -164,4 +164,16 @@ $ docker tag first-image {docker-hub-username}/{default-repo-folder-name}:first-
 
 $ docker push {docker-hub-username}/{default-repo-folder-name}:first-image
 ```
+
+## Step 6 - docker pull
+Para traer a nuestro entorno una imagen de docker hub utilizamos `docker pull`
+
+```{shell}
+$ docker pull <nombre docker-hub>/<nombre-imagen>:versión
+```
+
+## Contributing
+Esta guía es válida solo para entornos OSx y Linux
+
+
 
