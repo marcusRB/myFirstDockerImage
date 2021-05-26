@@ -65,7 +65,7 @@ The USER directive is used to set the UID (or username) which is to run the cont
 
 Example:
 
-# Usage: USER [UID]
+### Usage: USER [UID]
 USER 751
 
 VOLUME
@@ -74,7 +74,7 @@ The VOLUME command is used to enable access from your container to a directory o
 
 Example:
 
-# Usage: VOLUME ["/dir_1", "/dir_2" ..]
+### Usage: VOLUME ["/dir_1", "/dir_2" ..]
 VOLUME ["/my_files"]
 
 WORKDIR
@@ -83,7 +83,7 @@ The WORKDIR directive is used to set where the command defined with CMD is to be
 
 Example:
 
-# Usage: WORKDIR /path
+### Usage: WORKDIR /path
 WORKDIR ~/
 
 ENTRYPOINT
@@ -93,7 +93,7 @@ ENTRYPOINT argument sets the concrete default application that is used every tim
 If you couple ENTRYPOINT with CMD, you can remove “application” from CMD and just leave “arguments” which will be passed to the ENTRYPOINT.
 
 Example:
-
+```
 # Usage: ENTRYPOINT application "argument", "argument", ..
 # Remember: arguments are optional. They can be provided by CMD
 #           or during the creation of a container.
@@ -101,11 +101,10 @@ ENTRYPOINT echo# Usage example with CMD:
 # Arguments set with CMD can be overridden during *run*
 CMD "Hello docker!"
 ENTRYPOINT echo
-
-
-
+```
 
 ***
+
 ## Step 2 - crear index.html
 
 Creamos el fichero que leerá la webservice
@@ -139,6 +138,7 @@ $ docker build -t hellodata .
 # el punto final "." indica a cual de los directorios le decimos a docker de crearla
 ```
 
+***
 
 ## Step 4 - docker run
 
@@ -154,9 +154,17 @@ Ya podemos ver el resultado en nuestro browser:
 
 `localhost:80`
 
+***
+
 ## Step 5 - docker push
 
 Para enviar nuestra imagen al Docker Hub, previo registro y login utilizamos `docker push`
+
+Para el **login**:
+
+```{shell}
+$ docker login -u {docker-hub-username} -p {docker-hub-password}
+```
 
 
 ```{shell}
@@ -165,6 +173,8 @@ $ docker tag first-image {docker-hub-username}/{default-repo-folder-name}:first-
 $ docker push {docker-hub-username}/{default-repo-folder-name}:first-image
 ```
 
+***
+
 ## Step 6 - docker pull
 Para traer a nuestro entorno una imagen de docker hub utilizamos `docker pull`
 
@@ -172,8 +182,13 @@ Para traer a nuestro entorno una imagen de docker hub utilizamos `docker pull`
 $ docker pull <nombre docker-hub>/<nombre-imagen>:versión
 ```
 
+
 ## Contributing
-Esta guía es válida solo para entornos OSx y Linux
+
+Esta guía ha sido testeada y validada en:
+- Windows 10 : GitBast // VisualstudioCode
+- OSx
+- Linux Ubuntu 16
 
 
 
