@@ -168,9 +168,17 @@ $ docker login -u {docker-hub-username} -p {docker-hub-password}
 
 
 ```{shell}
-$ docker tag first-image {docker-hub-username}/{default-repo-folder-name}:first-image
+$ docker tag first-image:version {docker-hub-username}/{default-repo-folder-name}:tag
 
-$ docker push {docker-hub-username}/{default-repo-folder-name}:first-image
+example
+$ docker tag staging_kafka_producer:latest mrussorb/cluster-kafka:kafka-producer-v1.0.0
+```
+
+```{shell}
+$ docker push {docker-hub-username}/{default-repo-folder-name}:<tag generated above>
+
+example
+$ docker push mrussorb/cluster-kafka:kafka-producer-v1.0.0
 ```
 
 ***
